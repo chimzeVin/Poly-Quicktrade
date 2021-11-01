@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/content_ask.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/dialog_ask.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/fragment_ask.xml" value="0.17572463768115942" />
+      </map>
+    </option>
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="org.jetbrains.annotations.Nullable" />
     <option name="myDefaultNotNull" value="androidx.annotation.NonNull" />
