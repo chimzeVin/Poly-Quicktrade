@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<resources>-->
+<!--    <color name="colorPrimary">#008577</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#139A43</color>-->
+<!--&lt;!&ndash;    <color name="colorAccent">#D81B60</color>&ndash;&gt;-->
+<!--</resources>-->
+<!--    fb8c00-->
+<!--    ffad6b-->
+<resources>
+    <color name="colorPrimary">#ff833a</color>
+    <color name="colorPrimaryLight">#ffdf9a</color>
+    <color name="colorPrimaryDark">#ac1900</color>
+    <color name="colorAccent">#e65100</color>
+    <color name="colorAccentLight">#ff833a</color>
+    <color name="colorAccentDark">#c87d3e</color>
+    <color name="dark_background">#FF424242</color>
+    <color name="light_background">#FFFFFFFF</color>
+<!--    <color name="colorAccent">#D81B60</color>-->
+</resources>
+
+<!--<resources>-->
+<!--    <color name="colorPrimary">#fb8c00</color>-->
+<!--    <color name="colorPrimaryLight">#ffdf9a</color>-->
+<!--    <color name="colorPrimaryDark">#c87d3e</color>-->
+<!--    <color name="colorAccent">#e65100</color>-->
+<!--    <color name="colorAccentLight">#ff833a</color>-->
+<!--    <color name="colorAccentDark">#ac1900</color>-->
+<!--&lt;!&ndash;    <color name="colorAccent">#D81B60</color>&ndash;&gt;-->
+<!--</resources>-->

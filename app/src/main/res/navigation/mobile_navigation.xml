@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_browse">
+
+    <fragment
+        android:id="@+id/navigation_browse"
+        android:name="com.example.polyquicktrade.ui.browse.BrowseFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_browse">
+        <action
+            android:id="@+id/action_navigation_browse_to_productFragment"
+            app:destination="@id/productFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.example.polyquicktrade.ui.categories.CategoriesFragment"
+        android:label="@string/title_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_navigation_categories_to_browseCategoriesFragment"
+            app:destination="@id/browseCategoriesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_wishlist"
+        android:name="com.example.polyquicktrade.ui.wishlist.WishlistFragment"
+        android:label="@string/title_wishlist"
+        tools:layout="@layout/fragment_wishlist" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_ask"
+        android:name="com.example.polyquicktrade.ui.ask.AskFragment"
+        android:label="@string/title_ask"
+        tools:layout="@layout/fragment_ask" >
+        <action
+            android:id="@+id/action_navigation_ask_to_enquiryAndResponsesFragment"
+            app:destination="@id/enquiryAndResponsesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.polyquicktrade.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" />
+    <fragment
+        android:id="@+id/browseCategoriesFragment"
+        android:name="com.example.polyquicktrade.BrowseCategoriesFragment"
+        android:label="fragment_browse_categories"
+        tools:layout="@layout/fragment_browse_categories" >
+        <action
+            android:id="@+id/action_browseCategoriesFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/enquiryAndResponsesFragment"
+        android:name="com.example.polyquicktrade.EnquiryAndResponsesFragment"
+        android:label="fragment_enquiry_and_responses"
+        tools:layout="@layout/fragment_enquiry_and_responses" >
+        <action
+            android:id="@+id/action_enquiryAndResponsesFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_enquiryAndResponsesFragment_to_addProductActivity"
+            app:destination="@id/addProductActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/addProductActivity"
+        android:name="com.example.polyquicktrade.ui.AddProductActivity"
+        android:label="activity_add_product"
+        tools:layout="@layout/activity_add_product" >
+        <argument
+            android:name="AddProductToEnquiry"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true"/>
+    </activity>
+
+    <!--    <fragment-->
+<!--        android:id="@+id/navigation_sell"-->
+<!--        android:name="com.example.polyquicktrade.ui.sell.SellFragment"-->
+<!--        android:label="@string/title_sell"-->
+<!--        tools:layout="@layout/fragment_sell" />-->
+
+
+</navigation>

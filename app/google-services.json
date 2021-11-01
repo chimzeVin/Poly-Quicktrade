@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1003907937454",
+    "firebase_url": "https://poly-quicktrade.firebaseio.com",
+    "project_id": "poly-quicktrade",
+    "storage_bucket": "poly-quicktrade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003907937454:android:1c69888791e4383d56293f",
+        "android_client_info": {
+          "package_name": "com.example.polyquicktrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003907937454-h99k59hcj0hs7sogks6tr0d94k4tt808.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.polyquicktrade",
+            "certificate_hash": "99065b65dcba03b732634786a06b34595492e6fe"
+          }
+        },
+        {
+          "client_id": "1003907937454-f7d75rpuqgfmr52r4jcsqn2bf5lbn6p9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuFpxODVpiNZ5vd086AkZkInkkHBHNI4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003907937454-f7d75rpuqgfmr52r4jcsqn2bf5lbn6p9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
