@@ -1,25 +1,21 @@
 package com.example.polyquicktrade.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.polyquicktrade.pojo.Product;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.util.Log;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
-
 import com.example.polyquicktrade.R;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.polyquicktrade.pojo.Product;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -27,9 +23,7 @@ import java.util.ArrayList;
 
 public class SellActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private SellAdapter sellAdapter;
+
     private SellViewModel sellViewModel;
     private FirebaseFirestore db;
     private FirebaseUser user;
@@ -48,49 +42,28 @@ public class SellActivity extends AppCompatActivity {
         }
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        recyclerView = findViewById(R.id.SellRecyclerView);
-        sellViewModel = ViewModelProviders.of(this).get(SellViewModel.class);
-
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        db = FirebaseFirestore.getInstance();
-
-        if (user != null){
-
-            sellViewModel.getSellerProductsFromFirebase(db, user.getUid());
-
-            sellViewModel.getProductMutableLiveData().observe(this, new Observer<ArrayList<Product>>() {
-                @Override
-                public void onChanged(ArrayList<Product> products) {
-                    sellAdapter = new SellAdapter(products);
-                    Log.d("MY_TAG", products.get(0).toString());
-                    recyclerView.setAdapter(sellAdapter);
-
-                }
-            });
-
-        }
 
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        recyclerView = findViewById(R.id.SellRecyclerView);
+//        sellViewModel = ViewModelProviders.of(this).get(SellViewModel.class);
+        sellViewModel = new ViewModelProvider(this).get(SellViewModel.class);
 
-                if (user != null){
-                openAddProductActivity();
-                }else {
-                    Toast.makeText(SellActivity.this, "You are not logged in", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+//        layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        db = FirebaseFirestore.getInstance();
+
+//        Navigation navController = this.findNavController(R.id.myNavHostFragment);
+
+        NavController navController = Navigation.findNavController(this, R.id.sellNavHostFragment);
+
+        NavigationUI.setupActionBarWithNavController(this, navController);
+
+
     }
 
-    private void openAddProductActivity() {
-        Intent i = new Intent(this, AddProductActivity.class);
-        startActivity(i);
-    }
+
 
 }

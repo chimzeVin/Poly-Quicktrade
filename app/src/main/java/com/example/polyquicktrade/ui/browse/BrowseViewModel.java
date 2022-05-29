@@ -2,11 +2,12 @@ package com.example.polyquicktrade.ui.browse;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+
 import com.example.polyquicktrade.pojo.Product;
 import com.example.polyquicktrade.pojo.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,16 +15,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 public class BrowseViewModel extends ViewModel {
 
@@ -58,43 +54,41 @@ public class BrowseViewModel extends ViewModel {
 //                ;
 
         final ArrayList<Product> products = new ArrayList<>();
-        db.collectionGroup("product_documents").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-             @Override
-             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                 if (task.isSuccessful()){
+        db.collectionGroup("product_documents").get().addOnCompleteListener(task -> {
 
-                     Set<String> sellerIDs= new HashSet<>();
+            if (task.isSuccessful()){
 
-                     for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
-                         Log.d("MY_TAG", document.getId() + " => " + document.getData());
-                         products.add(document.toObject(Product.class));
+                Set<String> sellerIDs= new HashSet<>();
 
-                         sellerIDs.add(document.toObject(Product.class).getSeller());
 
-                         productsMutableLiveData.setValue(products);
-                     }
+                for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
+                    Log.d("MY_TAG", document.getId() + " => " + document.getData());
+                    products.add(document.toObject(Product.class));
 
-                     for (String id : sellerIDs) {
+                    sellerIDs.add(document.toObject(Product.class).getSeller());
 
-                         getSellerFromFirebase(id);
-                     }
+                    productsMutableLiveData.setValue(products);
+                }
 
-                 }
-                 else {
-                     Log.d("MY_TAG", "BrowseViewModel not succesful: ");
+                for (String id : sellerIDs) {
 
-                 }
-             }
-         }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
+                    getSellerFromFirebase(id);
+                }
 
-                Log.d("MY_TAG", "Message: "+e.getMessage());
-                Log.d("MY_TAG", "eString: "+ e.toString());
 
 
             }
+            else {
+                Log.d("MY_TAG", "BrowseViewModel not successful: ");
+
+            }
+        }).addOnFailureListener(e -> {
+
+            Log.d("MY_TAG", "Message: "+e.getMessage());
+            Log.d("MY_TAG", "eString: "+ e.toString());
+
+
         });
 
 
@@ -141,6 +135,8 @@ public class BrowseViewModel extends ViewModel {
                     long joinDate = (long) dataSnapshot.child("joinDate").getValue();
                     User user = new User(id, username, pictureURI, new ArrayList<String>(), new ArrayList<String>(), joinDate);
                     users.add(user);
+
+                    Log.d("MY_TAG", "getSellerFromFirebase: value set");
                     userMutableLiveData.setValue(users);
 
 
@@ -156,6 +152,7 @@ public class BrowseViewModel extends ViewModel {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("MY_TAG", "getSellerFromFirebase: cancelled");
 
             }
         });

@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/drawable/ic_twotone_location_on_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/drawable/ic_twotone_person_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/activity_add_product.xml" value="0.1" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/activity_main.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/activity_sell.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/content_ask.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/content_sell.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/custom_browse_view.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/custom_categories_view.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/custom_product_fragment.xml" value="0.1796875" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/custom_sell.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/dialog_ask.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/fragment_ask.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/fragment_browse.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/fragment_product.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/fragment_sell.xml" value="0.1" />
+        <entry key="..\:/Users/chimw/AndroidStudioProjects/PolyQuickTrade/app/src/main/res/layout/toolbar.xml" value="0.1796875" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="org.jetbrains.annotations.Nullable" />
     <option name="myDefaultNotNull" value="androidx.annotation.NonNull" />

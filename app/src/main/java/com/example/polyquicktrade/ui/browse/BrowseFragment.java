@@ -10,23 +10,17 @@ import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.polyquicktrade.BrowseCategoriesViewModel;
-import com.example.polyquicktrade.pojo.Product;
 import com.example.polyquicktrade.R;
 import com.example.polyquicktrade.RecyclerClickListener;
 import com.example.polyquicktrade.SharedViewModel;
-import com.example.polyquicktrade.pojo.User;
+import com.example.polyquicktrade.pojo.Product;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
 
 public class BrowseFragment extends Fragment implements RecyclerClickListener<Product> {
 
@@ -66,27 +60,26 @@ public class BrowseFragment extends Fragment implements RecyclerClickListener<Pr
         recyclerView.setLayoutManager(layoutManager);
 
 
-        browseViewModel.getProductsMutableLiveData().observe(getViewLifecycleOwner(), new Observer<ArrayList<Product>>() {
-            @Override
-            public void onChanged(final ArrayList<Product> products) {
+        browseViewModel.getProductsMutableLiveData().observe(getViewLifecycleOwner(), products -> {
 
 
-                browseViewModel.getUserMutableLiveData().observe(getViewLifecycleOwner(), new Observer<ArrayList<User>>() {
-                    @Override
-                    public void onChanged(ArrayList<User> users) {
-                        for (User user :
-                                users) {
 
-                        }
-                        mAdapter = new BrowseAdapter(products, users, BrowseFragment.this);
-                        recyclerView.setAdapter(mAdapter);
-                        progressBar.setVisibility(View.GONE);
+            browseViewModel.getUserMutableLiveData().observe(getViewLifecycleOwner(), users -> {
+//                for (User user :
+//                        users) {
+//
+//                }
 
 
-                    }
-                });
 
-            }
+                Log.d("MY_TAG", "BrowseFragment: Reached usermutabledata ");
+                mAdapter = new BrowseAdapter(products, users, BrowseFragment.this);
+                recyclerView.setAdapter(mAdapter);
+                progressBar.setVisibility(View.GONE);
+
+
+            });
+
         });
 
 

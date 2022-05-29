@@ -11,6 +11,19 @@
     </string-array>
 
     <string-array name="categories_array">
+        <item>Agricultural Inputs</item>
+        <item>Farm Equipment</item>
+        <item>Feed</item>
+        <item>Horticultural Crops</item>
+        <item>Other Crops</item>
+        <item>Land</item>
+        <item>Livestock</item>
+        <item>Machinery</item>
+        <item>Miscellaneous</item>
+
+    </string-array>
+
+    <string-array name="categories_array_old">
         <item>Beauty</item>
         <item>Camera</item>
         <item>Clothing</item>
@@ -19,7 +32,7 @@
         <item>Phone</item>
         <item>Tablet</item>
         <item>Other</item>
-
+<!--     8 objects-->
     </string-array>
 
 </resources>

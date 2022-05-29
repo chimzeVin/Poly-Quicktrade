@@ -44,9 +44,11 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.BrowseView
 
     public static class BrowseViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, price, seller, location;
+        TextView name, price, seller, location, description;
         ImageView productPhoto;
-        CardView cardView;        class ProductFragmentViewHolder extends RecyclerView.ViewHolder{
+        CardView cardView;
+
+        class ProductFragmentViewHolder extends RecyclerView.ViewHolder{
 
             public ProductFragmentViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -74,6 +76,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.BrowseView
             location = itemView.findViewById(R.id.cbLocation);
             productPhoto = itemView.findViewById(R.id.cbImageView);
             cardView = itemView.findViewById(R.id.browseCardView);
+            description = itemView.findViewById(R.id.descriptionText);
 
         }
     }
@@ -97,6 +100,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.BrowseView
         String priceFormatted = getStringPrice(priceUnformatted);
         holder.price.setText(String.format("MWK %s", priceFormatted));
         holder.location.setText(product.getLocation());
+        holder.description.setText(product.getDescription());
         Glide.with(holder.itemView.getContext())
                 .load(product.getPhotoURI())
                 .centerCrop()

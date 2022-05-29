@@ -1,5 +1,7 @@
 package com.example.polyquicktrade.ui;
 
+import static java.util.Calendar.getInstance;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -20,17 +22,6 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.polyquicktrade.pojo.Product;
-import com.example.polyquicktrade.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.io.File;
-import java.util.ArrayList;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -39,7 +30,16 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import static java.util.Calendar.getInstance;
+import com.example.polyquicktrade.R;
+import com.example.polyquicktrade.pojo.Product;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class AddProductActivity extends AppCompatActivity implements View.OnClickListener{
 

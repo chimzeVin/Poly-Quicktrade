@@ -238,7 +238,7 @@ public class AddProductViewModel extends ViewModel {
                 child(month + "")
                 .child(week + "")
                 .child(day + "")
-                .child(file.getLastPathSegment());
+                .child(Objects.requireNonNull(file.getLastPathSegment()));
 
         UploadTask uploadTask = imageRef.putFile(file);
 //

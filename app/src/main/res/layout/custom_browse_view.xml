@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginVertical="4dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        app:cardElevation="1dp"
         android:clickable="true"
         android:focusable="true"
 
@@ -26,15 +26,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:padding="8dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/cbName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
@@ -62,7 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:text="Mk 150 000"
                 android:textColor="@color/colorAccent"
@@ -76,16 +75,17 @@
                 android:id="@+id/cbSeller"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Khumbolawo Mussa"
                 android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/imageView2"
                 app:layout_constraintEnd_toStartOf="@+id/cbBuyButton"
-                app:layout_constraintStart_toEndOf="@+id/cbImageView"
-                app:layout_constraintTop_toBottomOf="@+id/cbPrice" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
             <Button
                 android:id="@+id/cbBuyButton"
@@ -94,6 +94,8 @@
                 android:layout_height="wrap_content"
                 android:text="Buy Now"
                 android:textSize="14sp"
+                android:paddingVertical="0dp"
+
                 app:layout_constraintBottom_toBottomOf="@+id/cbImageView"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -101,16 +103,54 @@
                 android:id="@+id/cbLocation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Blantyre"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintEnd_toStartOf="@+id/cbBuyButton"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cbImageView"
                 app:layout_constraintStart_toEndOf="@+id/cbImageView"
-                app:layout_constraintTop_toBottomOf="@+id/cbSeller" />
+                card_view:srcCompat="@drawable/ic_twotone_location_on_24" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/cbImageView"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionText"
+                app:layout_constraintVertical_bias="1.0"
+                card_view:srcCompat="@drawable/ic_twotone_person_24" />
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="TextView"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cbImageView"
+                app:layout_constraintTop_toBottomOf="@+id/cbPrice" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

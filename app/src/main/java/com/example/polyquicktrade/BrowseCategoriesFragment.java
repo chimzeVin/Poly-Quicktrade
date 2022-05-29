@@ -2,27 +2,28 @@ package com.example.polyquicktrade;
 
 
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavDirections;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavDirections;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.polyquicktrade.pojo.Product;
 import com.example.polyquicktrade.ui.browse.BrowseAdapter;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -56,6 +57,7 @@ private TextView categoryName;
 
 
 
+
     }
 
     @Override
@@ -70,25 +72,23 @@ private TextView categoryName;
         progressBar = v.findViewById(R.id.browseCategoryProgressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        sharedViewModel.getCategory().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                categoryName.setText(s);
-                browseCategoriesViewModel.getCategoryProductsFromFirebase(db, s);
-            }
+        sharedViewModel.getCategory().observe(getViewLifecycleOwner(), s -> {
+            categoryName.setText(s);
+            final List<String> oldCategories = Arrays.asList(getContext().getResources().getStringArray(R.array.categories_array_old));
+            Random random = new Random();
+            int randomNumber = random.nextInt(8);
+
+            browseCategoriesViewModel.getCategoryProductsFromFirebase(db, oldCategories.get(randomNumber));
         });
 
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
 
-        browseCategoriesViewModel.getCategoryProducts().observe(getViewLifecycleOwner(), new Observer<ArrayList<Product>>() {
-            @Override
-            public void onChanged(ArrayList<Product> products) {
-                mAdapter = new BrowseAdapter(products, null, BrowseCategoriesFragment.this);
-                recyclerView.setAdapter(mAdapter);
-                progressBar.setVisibility(View.GONE);
-            }
+        browseCategoriesViewModel.getCategoryProducts().observe(getViewLifecycleOwner(), products -> {
+            mAdapter = new BrowseAdapter(products, null, BrowseCategoriesFragment.this);
+            recyclerView.setAdapter(mAdapter);
+            progressBar.setVisibility(View.GONE);
         });
 
 

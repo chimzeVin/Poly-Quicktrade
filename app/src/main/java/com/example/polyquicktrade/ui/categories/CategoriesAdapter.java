@@ -46,9 +46,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     public CategoriesAdapter(Context context, RecyclerClickListener<String> clickListener) {
 
         categories = new ArrayList<>(Arrays.asList(context.getResources().getStringArray(R.array.categories_array)));
-        Collections.sort(categories, String.CASE_INSENSITIVE_ORDER);
+//        Collections.sort(categories, String.CASE_INSENSITIVE_ORDER);
         categories.remove("Other");
         categories.add("Other");
+        categories.remove("Other");
         this.clickListener = clickListener;
 
     }
